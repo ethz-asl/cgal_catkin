@@ -1,4 +1,2 @@
 # cgal_catkin
-A catkin wrapper for CGAL.
-
-# Requirements
+Catkin wrapper of the Computational Geometry Algorithms Library (CGAL)

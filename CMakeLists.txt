@@ -18,8 +18,8 @@ ExternalProject_Add(cgal_src
     -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}
     -DCMAKE_BUILD_TYPE=Release
     -DBUILD_SHARED_LIBS=ON
-  BUILD_COMMAND make -j8
-  INSTALL_COMMAND make install -j8
+  BUILD_COMMAND make
+  INSTALL_COMMAND make install
 )
 
 cs_add_library(${PROJECT_NAME} src/dependency_tracker.cc)

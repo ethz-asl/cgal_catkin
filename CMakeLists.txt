@@ -10,16 +10,24 @@ set(VERSION 4.11.0)
 
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
+set(CGAL_VERSION 4.11)
 ExternalProject_Add(cgal_src
-  GIT_REPOSITORY git@github.com:CGAL/cgal.git
-  GIT_TAG releases/CGAL-4.11
+  URL https://github.com/CGAL/cgal/archive/releases/CGAL-${CGAL_VERSION}.tar.gz
   UPDATE_COMMAND ""
-  CMAKE_ARGS
-    -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}
-    -DCMAKE_BUILD_TYPE=Release
-    -DBUILD_SHARED_LIBS=ON
-  BUILD_COMMAND make
-  INSTALL_COMMAND make install
+  CONFIGURE_COMMAND
+    cd ../cgal_src/ &&
+    cmake
+      -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}
+      -DWITH_CGAL_Qt5:BOOL=OFF
+      -DWITH_CGAL_ImageIO:BOOL=OFF
+      -DCMAKE_BUILD_TYPE:STRING=Release
+      .
+  BUILD_COMMAND
+    cd ../cgal_src/ &&
+    $(MAKE)
+  INSTALL_COMMAND
+    cd ../cgal_src/ &&
+    $(MAKE) install
 )
 
 cs_add_library(${PROJECT_NAME} src/dependency_tracker.cc)

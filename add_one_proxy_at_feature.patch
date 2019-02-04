@@ -1,0 +1,32 @@
+--- Surface_mesh_approximation/include/CGAL/Variational_shape_approximation.h
++++ Surface_mesh_approximation/include/CGAL/Variational_shape_approximation.h
+@@ -452,6 +452,14 @@ public:
+   }
+
+   /*!
++   * @brief adds a proxy at face f.
++   * @param f where to the proxy is initialized from
++   */
++  void add_one_proxy_at(const face_descriptor f) {
++    m_proxies.push_back(fit_proxy_from_face(f, m_proxies.size()));
++  }
++
++  /*!
+    * @brief adds proxies by diffusing fitting error into current partition.
+    * Each partition is added with the number of proxies in proportion to its fitting error.
+    * @param nb_proxies number of proxies to be added
+@@ -1274,14 +1282,6 @@ private:
+   }
+
+   /*!
+-   * @brief adds a proxy at face f.
+-   * @param f where to the proxy is initialized from
+-   */
+-  void add_one_proxy_at(const face_descriptor f) {
+-    m_proxies.push_back(fit_proxy_from_face(f, m_proxies.size()));
+-  }
+-
+-  /*!
+    * @brief fits a new (wrapped) proxy from a face.
+    * 1. Compute proxy parameters from the face.
+    * 2. Set seed to this face.

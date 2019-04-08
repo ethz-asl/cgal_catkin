@@ -12,7 +12,7 @@ file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
 ExternalProject_Add(cgal_src
   GIT_REPOSITORY git@github.com:CGAL/cgal.git
-  GIT_TAG 1ca9dbc514a4de9b214d2a6270a4b3294381948f
+  GIT_TAG releases/CGAL-4.14-beta4
   UPDATE_COMMAND ""
   #PATCH_COMMAND patch -p0 < ${CMAKE_CURRENT_SOURCE_DIR}/add_one_proxy_at_feature.patch
   CMAKE_ARGS

@@ -14,12 +14,11 @@ ExternalProject_Add(cgal_src
   GIT_REPOSITORY git@github.com:CGAL/cgal.git
   GIT_TAG releases/CGAL-4.14-beta4
   UPDATE_COMMAND ""
-  #PATCH_COMMAND patch -p0 < ${CMAKE_CURRENT_SOURCE_DIR}/add_one_proxy_at_feature.patch
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}
     -DCMAKE_BUILD_TYPE=Release
     -DBUILD_SHARED_LIBS=ON
-    -DWITH_examples=ON
+    -DWITH_examples=OFF
   BUILD_COMMAND make
   INSTALL_COMMAND make install
 )

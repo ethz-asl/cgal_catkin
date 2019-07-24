@@ -11,8 +11,8 @@ set(VERSION 4.14.0)
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
 ExternalProject_Add(cgal_src
-  GIT_REPOSITORY git@github.com:CGAL/cgal.git
-  GIT_TAG releases/CGAL-4.14-beta4
+  GIT_REPOSITORY https://github.com/CGAL/cgal.git
+  GIT_TAG releases/CGAL-4.14
   UPDATE_COMMAND ""
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=${CATKIN_DEVEL_PREFIX}

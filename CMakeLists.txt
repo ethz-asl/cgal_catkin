@@ -6,11 +6,11 @@ catkin_simple()
 
 include(ExternalProject)
 
-set(VERSION 4.14.1)
+set(VERSION 5.0.3)
 
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
-set(CGAL_VERSION 4.14.1)
+set(CGAL_VERSION 5.0.3)
 ExternalProject_Add(cgal
   URL https://github.com/CGAL/cgal/archive/releases/CGAL-${CGAL_VERSION}.tar.gz
   UPDATE_COMMAND ""
@@ -18,6 +18,7 @@ ExternalProject_Add(cgal
     -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
     -DWITH_CGAL_Qt5:BOOL=OFF
     -DWITH_CGAL_ImageIO:BOOL=OFF
+    -DCGAL_HEADER_ONLY=OFF
     -DCMAKE_BUILD_TYPE:STRING=Release
   BUILD_COMMAND $(MAKE)
   INSTALL_COMMAND $(MAKE) install

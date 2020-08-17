@@ -1,6 +1,6 @@
 <package>
   <name>cgal_catkin</name>
-  <version>4.14.1</version>
+  <version>5.0.3</version>
   <description>Catkin wrapper for CGAL.</description>
   <maintainer email="brik@ethz.ch">Rik Bähnemann</maintainer>
 
